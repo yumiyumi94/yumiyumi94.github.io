@@ -1,0 +1,55 @@
+@import "./variables";
+
+//cuadrado para grabar 
+.cuadro_grabar{
+    height: 500px;
+    margin: auto;
+}
+.grabarVid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.grabar_gif{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.botonGeneral{
+    border: 1px solid $morado;
+    width: 120px;
+    height: 50px;
+    border-radius: 100px;
+    margin: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button{
+        border: none;
+        background:none;
+        color: $morado;
+        font-weight: 500;
+        margin:auto;
+    }
+}
+
+.btn{
+    border: 1px solid $morado;
+    background:none;
+    border-radius: 500px;
+    color: $morado;
+    width: 50px;
+    height: 50px;
+}
+
+.numeros{
+    margin-bottom: 50px;
+    padding: 20px;
+    border-bottom: 3px solid $morado;
+    border-radius: 5px;
+    width: 800px;
+}

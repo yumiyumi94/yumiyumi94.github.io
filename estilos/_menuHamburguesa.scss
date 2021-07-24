@@ -1,0 +1,106 @@
+@import "./variables"; 
+
+.menu{
+    background-color: $morado;
+    opacity: 0.9;
+    visibility: hidden;
+    z-index: 3;
+    position: absolute;
+    width: 100%;
+
+    @media(min-width:600px) {
+        background-color: white;
+        height: 5vh;
+        visibility:visible;
+        position: relative;
+    }
+
+    body.dark & {
+        background-color: $fondoNocturno;
+        a{
+            color: white;
+        }
+    }
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    gap: 20px;
+    transition: all 500ms ease;
+
+    @media (min-width:600px){
+        margin-right: 100px;
+        margin-top: 10px;
+        flex-flow: row;
+        justify-content: space-around;
+        gap: 20px;
+    }
+}
+
+.li_menu{
+    //margin-top: 10px;
+
+    &:hover{
+        text-decoration: line-through;
+    }
+
+    a{
+        color: white;
+        text-decoration: none;
+        text-align: center;
+
+        &:hover{
+            text-decoration: line-through; 
+        }
+
+        @media(min-width:600px){
+            color: $morado;
+        }
+    }
+}
+
+#check{
+    visibility: hidden;
+}
+
+.no{
+    visibility: hidden;
+}
+
+#check:checked ~ .menu{
+    margin-top: 30px;
+    margin-left: -90%;
+    visibility: visible;
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+}
+
+#check:checked ~ .checkbtn{
+    visibility: hidden;
+}
+
+#check:checked ~ .no{
+    visibility: visible;
+}
+
+.checkbtn{
+    @media (min-width:600px){
+        display: none;
+    }
+}
+
+.linea{
+    border-top: 1px solid white;
+    width: 50px;
+    height: 2px;
+
+    @media (min-width:600px){
+        display: none;
+        width: 0px;
+     }
+}

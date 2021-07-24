@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIFOS</title>
+    <link rel="shortcut icon" type="image/xicon" href="./imagenes/logo.svg">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./estilo.css">
+</head>
+
+<body>
+    <header>
+        <!--logo-->
+        <a href="./index.html"><img src="./assets/logo-mobile.svg" alt="logo gifos" class="logo"></a>
+        <!--menu-->
+        <div class="nav_bar"><input type="checkbox" id="check">
+            <label for="check" class="checkbtn"><img src="./assets/burger.svg" alt=""></label>
+            <label for="check" class="no"><img src="./assets/close.svg" alt="x cierre"></label>
+            <nav class="menu">
+                <ul>
+                    <li class="li_menu"><a href="#" id="nocturno" class="nocturno">Modo Nocturno</a></li>
+                    <div class="linea"></div>
+                    <li class="li_menu"><a href="./favoritos.html">Favoritos</a></li>
+                    <div class="linea"></div>
+                    <li class="li_menu"><a href="./misgifos.html">Mis GIFOS</a></li>
+                    <div class="linea"></div>
+                    <li class="li_menu"><a href="./grabarGifo.html"><img src="./assets/button-crear-gifo.svg" alt="" class="crearGIFOS"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="intro">
+            <img src="./assets/icon-favoritos.svg" alt="">
+            <h2>Favoritos</h2>
+        </section>
+        <div class="mis_Favoritos">
+        </div>
+        <div class="btnVer"></div>
+        <section class="sec_trending">
+            <h2>Trending GIFOS</h2>
+            <p>Mira los últimos</p>
+            <p> GIFOS de nuestra comunidad.</p>
+            <!--PENDIENTE GALERIA-->
+        </section>
+    </main>
+    <footer>
+        <div><p>Compartir en:</p>
+        <img src="./assets/icon_facebook.svg" alt="logo facebook" class="redes">
+        <img src="./assets/icon-twitter.svg" alt="logo twitter" class="redes">
+        <img src="./assets/icon_instagram.svg" alt="logo instagram" class="redes">
+        </div>
+        <p> GIFOS 2020 All Rights Reserved.</p>
+    </footer>
+    <script type="module" src="./js/favoritos.js"></script>
+</body>
+
+</html>

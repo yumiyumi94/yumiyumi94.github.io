@@ -1,0 +1,160 @@
+@import "./variables";
+//seccion trending 
+
+.sec_trending{
+    background-color: gainsboro;
+    width: 100%;
+
+    body.dark & {
+        background-color: $fondoTrendingN;
+    }
+}
+//carrusel
+
+.carrusel_trending{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+#trendingGifs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap:10px;
+    overflow: hidden;
+    margin-left: -50%;
+}
+
+.gif_trend{
+    width: 250px;
+    height: 250px;
+}
+
+.flecha_izq, .flecha_der{
+    border: none;
+    height: 100%;
+    background-color: gainsboro;
+    z-index: 4;
+
+    body.dark & {
+        background-color: $fondoTrendingN;
+    }
+}
+
+.estiloFlechas{
+    border: 1px solid $morado;
+    height: 40px;
+    width: 40px;
+    color: $morado;
+    text-align: center;
+    p{
+        font-size: 35px;
+        margin: auto;
+    }
+    body.dark & {
+        background-color: $fondoTrendingN;
+        color: white;
+        border: 1px solid white;
+    }
+    &:hover{
+        color: white;
+        background-color: $morado;
+        body.dark & {
+            background-color: white;
+            color: $fondoTrendingN;
+            border: 1px solid white;
+        }
+    }
+    
+}
+
+.box2{
+    z-index: 1;
+    width: 250px;
+    height: 250px;
+
+    .gif_trend{
+        z-index: -10;
+        position: relative;
+    }
+}
+
+.icon_img{
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 50;
+    margin-left: 0px;
+    margin-top: -255px;
+    background:none;
+    height: 250px;
+    width: 250px;
+    opacity: 0;
+
+    &:hover{
+        background-color: $morado;
+        visibility: visible;
+        opacity: 0.7;
+    }
+
+    img{
+        height: 30px;
+    }
+}
+
+.texto_card{
+    margin-top: 150px;
+    position: absolute;
+    margin-right: -15px;
+    color: white;
+    text-align: left;
+    width: 250px;
+
+    h5{
+        color: white;
+    }
+}
+
+.boton_card{
+    height: 35px;
+    background: none;
+    border: none;
+}
+
+.max_gif{
+    width: 100%;
+    height: 800px;
+    margin: auto;
+    background-color: white;
+    position: relative;
+
+    #cerrar{
+        position: absolute;
+    }
+
+    #gif_max{
+        margin-top: 50px;
+    }
+
+}
+
+//resultado palabra trendin
+.result_p_trend{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    margin: auto;
+    width:90%;
+
+    @media(min-width: 600px){
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+}

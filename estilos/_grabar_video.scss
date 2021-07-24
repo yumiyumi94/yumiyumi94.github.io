@@ -1,0 +1,15 @@
+@import "./variables";
+
+.grabarVid{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    margin-top: 20px;
+}
+
+.cuadro_grabar{
+    border: 1px solid $morado;
+    height: 390px;
+    width: 690px;
+}

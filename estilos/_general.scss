@@ -1,0 +1,37 @@
+@import "./variables";
+@import "./mixins";
+
+main{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    z-index: 0;
+    position: relative;
+
+    @include mobil;
+
+}
+
+h1,h2,h3,h4{
+    color: $morado;
+    font-family: 'Montserrat', sans-serif;
+
+    body.dark & {
+        color: white;
+    }
+}
+h1,h2,h3{
+    font-weight: 700;
+}
+h4{
+    font-weight: 500;
+}
+.gifos{
+    color: $verde;
+}
+
+h6{
+    color: $verde;
+    font-family: 'Montserrat', sans-serif;
+    font-size: medium;
+    width: 300px;
+}

@@ -1,0 +1,1 @@
+Proyecto de gifos: crear un sitio web donde los usuarios puedan buscar sus gifs favoritos, guardarlos y hasta crearlos. 

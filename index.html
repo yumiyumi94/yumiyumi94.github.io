@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIFOS</title>
+    <link rel="shortcut icon" type="image/xicon" href="./imagenes/logo.svg">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./estilo.css">
+</head>
+
+<body id="body">
+    <header>
+        <!--logo-->
+        <a href="./index.html" class="logo_nocturno"><img src="./assets/logo-mobile.svg" alt="logo gifos"
+                class="logo"></a>
+        <!--menu-->
+        <div class="nav_bar"><input type="checkbox" id="check">
+            <label for="check" class="checkbtn"><img src="./assets/burger.svg" alt="menu hamburguesa"
+                    id="burger"></label>
+            <label for="check" class="no"><img src="./assets/close.svg" alt="x cierre" class="cierre"></label>
+            <nav class="menu">
+                <ul>
+                    <li class="li_menu"><a href="#" id="nocturno" class="nocturno">Modo Nocturno</a></li>
+                    <div class="linea"></div>
+                    <li class="li_menu"><a href="./favoritos.html">Favoritos</a></li>
+                    <div class="linea"></div>
+                    <li class="li_menu"><a href="./misgifos.html">Mis GIFOS</a></li>
+                    <div class="linea"></div>
+                    <li class="li_menu"><a href="./grabarGifo.html" id="crearGIFOS"><img
+                                src="./assets/button-crear-gifo.svg" alt="" class="crearGIFOS"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <!--parte superior, espacio buscador-->
+        <section class="intro">
+            <h1>Inspírate, busca, guarda, y crea los mejores <span class="gifos">GIFOS</span></h1>
+            <img src="./assets/ilustra_header.svg" alt="tres dibujos saludando" class="img_intro">
+            <!--Buscador-->
+            <div class="buscador">
+                <input type="search" placeholder="Busca GIFOS y más" id="busqueda">
+                <div class="autocompletar"></div>
+                <img src="./assets/icon-search.svg" alt="lupa busqueda" id="lupa">
+            </div>
+            <h3>Trending:</h3>
+            <h4 class="palabrasTrending"></h4>
+            <h2 id="titulo_p_trend"></h2>
+            <div class="result_p_trend"></div>
+            <div class="btnMas"></div>
+            <h2 id="titulo_resultados"></h2>
+            <div id="resultadoGifs"></div>
+            <button class="ver_mas">VER MÁS</button>
+        </section>
+        <!--seccion de trending GIFOS-->
+        <div class="max_gif">
+            <section class="sec_trending">
+                <h2>Trending GIFOS</h2>
+                <p>Mira los últimos</p>
+                <p> GIFOS de nuestra comunidad.</p>
+                <div class="carrusel_trending">
+                    <button class="flecha_izq" id="flecha_izq"><img src="./assets/button-slider-left.svg"
+                            alt="flecha izquierda" class="flechaIzq">
+                        <!--<div class="estiloFlechas"><p>&lt;</p></div>-->
+                    </button>
+                    <div id="trendingGifs"></div>
+                    <button class="flecha_der" id="flecha_der"><img src="./assets/Button-Slider-right.svg"
+                            alt="flecha derecha" class="flechaDer">
+                        <!--<div class="estiloFlechas"><p>></p></div>-->
+                    </button>
+                </div>
+        </div>
+        </section>
+    </main>
+    <footer>
+        <!--seccion de redes-->
+        <div class="secRedes">
+            <span>Compartir en:</span>
+            <img src="./assets/icon_facebook.svg" alt="logo facebook" class="redes">
+            <img src="./assets/icon-twitter.svg" alt="logo twitter" class="redes">
+            <img src="./assets/icon_instagram.svg" alt="logo instagram" class="redes">
+        </div>
+        <!--derechos de autor-->
+        <p> GIFOS 2020 All Rights Reserved.</p>
+    </footer>
+    <script type="module" src="./main.js"></script>
+</body>
+
+</html>

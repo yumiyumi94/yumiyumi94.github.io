@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIFOS</title>
+    <link rel="shortcut icon" type="image/xicon" href="./imagenes/logo.svg">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./estilo.css">
+</head>
+
+<body id="body">
+    <header>
+        <!--logo-->
+        <a href="./index.html"><img src="./assets/logo-mobile.svg" alt="logo gifos" class="logo"></a>
+        <!--menu-->
+        <div class="nav_bar"><input type="checkbox" id="check">
+            <label for="check" class="checkbtn"><img src="./assets/burger.svg" alt=""></label>
+            <label for="check" class="no"><img src="./assets/close.svg" alt="x cierre"></label>
+            <nav class="menu">
+                <ul>
+                    <li class="li_menu"><a href="#" id="nocturno" class="nocturno">Modo Nocturno</a></li>
+                    <div class="linea"></div>
+                    <li class="li_menu"><a href="./favoritos.html">Favoritos</a></li>
+                    <div class="linea"></div>
+                    <li class="li_menu"><a href="./misgifos.html">Mis GIFOS</a></li>
+                    <div class="linea"></div>
+                    <li class="li_menu"><a href="#"><img src="./assets/CTA-crear-gifo-active.svg" alt=""
+                                class="crearGIFOS"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="grabarVid">
+        <div class="grabar_gif">
+            <img src="./assets/element-camara.svg" alt="camara">
+            <img src="./assets/element-luz-camara.svg" alt="luz camara">
+            <div class="cuadro_grabar"><video src="" id="video"></video>
+                <h2>Inspírate, busca, guarda, y crea los mejores <span class="gifos">GIFOS</span></h2>
+                <p>¡Crea tu GIFO en sólo 3 pasos!</p>
+                <p>(Sólo necesitas una cámara para grabar un video)</p>
+            </div>
+            <img src="./assets/pelicula.svg" alt="cinta pelicula">
+        </div>
+        <div class="numeros">
+            <button class="btn n1">1</button>
+            <button class="btn n2">2</button>
+            <button class="btn n3">3</button>
+        </div>
+        <div >
+            <button class="botonGeneral">COMENZAR</button>
+        </div>
+    </main>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    <script type="module" src="./js/grabar.js"></script>
+</body>
+
+</html>

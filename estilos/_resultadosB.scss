@@ -1,0 +1,174 @@
+@import "./variables";
+//estilo buscador
+.buscador{
+    width: 350px;
+    height: auto;
+    border: 1px solid $morado;
+    border-radius: 10px;
+    position: relative;
+
+    #lupa{
+        position: absolute;
+        margin-top: -25px;
+        margin-left: 145px;
+    }
+    .no_lupa{
+        visibility: hidden;
+    }
+
+    body.dark & {
+        border: 1px solid gainsboro;
+    }
+}
+//caja de busqueda
+#busqueda{
+    border: hidden;
+    margin-left: -50px;
+    margin-top: 5px;
+    width: 260px;
+
+    &:focus{
+        outline: none;
+    }
+
+    body.dark & {
+        background-color: $fondoNocturno;
+        color: white;
+    }
+}
+//lista de sugerencias
+.autocompletar{
+    margin-left: 15px;
+    margin-top: 10px;
+    width: 340px;
+
+    .sugerencias{
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        text-align: start;
+        &:hover{
+            background-color: #efefef;
+        }
+
+        img{
+            position: absolute;
+            margin-left: 300px;
+        }
+    }
+}
+
+//resultados busqueda
+#resultadoGifs{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    margin: auto;
+    width:90%;
+
+    @media(min-width: 600px){
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+}
+//container gif
+.box{
+    width: 180px;
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+    z-index: 10;
+}
+
+.box img{
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+}
+//corazon, descarga y max
+.icon{
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    gap: 20px;
+    z-index: 50;
+    margin-left: 0px;
+    margin-top: -185px;
+    background:none;
+    height: 180px;
+    width: 180px;
+    opacity: 0;
+
+    &:hover{
+        background-color: $morado;
+        visibility: visible;
+        opacity: 0.7;
+    }
+
+    img{
+        height: 30px;
+    }
+
+    button{
+        height: 35px;
+        background: none;
+        border: none;
+        position: absolute;
+        float: right;
+    }
+}
+//texto con usuario y titulo gif
+.texto{
+    margin-top: 80px;
+    position: absolute;
+    margin-right: -5px;
+    color: white;
+    text-align: left;
+    width: 180px;
+
+    h5{
+        color: white;
+        font-size: small;
+    }
+}
+
+//ver más
+.ver_mas{
+    width: 100px;
+    height: 80px;
+    border-radius: 10px;
+    border: 1px solid $morado;
+    visibility: hidden;
+}
+.visible{
+    width: 130px;
+    height: 50px;
+    border-radius: 100px;
+    border: 1px solid $morado;
+    background: white;
+    color: $morado;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    margin-top: 10px;
+    visibility: visible;
+
+    body.dark & {
+        border:1px solid white;
+        background-color: $fondoNocturno;
+        color: white;
+    }
+
+    &:hover{
+        background: $morado;
+        color: white;
+        
+        body.dark & {
+            border:1px solid white;
+            background-color: white;
+            color: black;
+        }
+    }
+}
