@@ -38,8 +38,75 @@ cajaBusqueda.addEventListener("keyup", (e)=>{
                letra.addEventListener("click", (e)=>{
                 cajaBusqueda.value = letra.textContent;
                 autocompletar.innerHTML =` `;
-                pintarResultados();
-                
+                fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${cajaBusqueda.value}&limit=${LIMIT}`)
+                .then((response)=>{
+                return response.json();
+                })
+                .then((resultado)=>{
+                    tituloSearch.textContent = `${cajaBusqueda.value}`;
+                    resultado.data.forEach((gif)=>{
+                        let urlGif = gif.images.fixed_height.url;
+                        resultadoSearch.innerHTML += `
+                        <div class="box2">
+                        <img src="${urlGif}" atl="gif resultado" class="gif_trend">
+                        <div class="icon_img">
+                        <button class="boton_card favorito2" id="favorito">
+                        <input type="hidden"value="${gif.images.original.url}">
+                        <img src="./assets/icon-fav.svg" alt="corazon">
+                        </button>
+                        <button class="boton_card descargar2" id="descargar">
+                        <input type="hidden"value="${gif.images.original.url}">
+                        <img src="./assets/icon-download.svg" alt="descargar">
+                        </button>
+                        <button class="boton_card max2" id="max_${gif.id}">
+                        <img src="./assets/icon-max-normal.svg" alt="max">
+                        </button>
+                    <div class="texto">
+                    <p>${gif}</p>
+                    <h5>${gif.title}</h5>
+                    </div>
+                    </div>
+                        </div>`;
+                    })
+                })
+                const verMas = document.querySelector(".ver_mas");
+                verMas.classList.toggle("visible");
+                verMas.addEventListener("click", (e)=>{
+                num = num +1;
+                let offSet = num*12; 
+                fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${cajaBusqueda.value}&limit=${LIMIT}&offset=${offSet}`)
+                .then((response)=>{
+                    return response.json();
+                })
+                .then((resultado)=>{
+                tituloSearch.textContent = `${cajaBusqueda.value}`;
+                resultado.data.forEach((gifo)=>{
+                let urlGifo = gifo.images.fixed_height.url;
+                resultadoSearch.innerHTML += `
+                    <div class="box2">
+                        <img src="${urlGifo}" atl="gif resultado" class="gif_trend">
+                        <div class="icon_img">
+                            <button class="boton_card favorito2">
+                            <input type="hidden"value="${urlGifo}"> 
+                            <img src="./assets/icon-fav.svg" alt="corazon">
+                            </button>
+                            <button class="boton_card descargar2">
+                            <input type="hidden"value="${urlGifo}"> 
+                            <img src="./assets/icon-download.svg" alt="descargar">
+                            </button>
+                            <button class="boton_card max2" id="max_${gifo.id}">
+                            <input type="hidden"value="${gifo.images.original.url}"> 
+                            <img src="./assets/icon-max-normal.svg" alt="max">
+                            </button>
+                            <div class="texto">
+                                <p>${gifo.username}</p>
+                                <h5>${gifo.title}</h5>
+                            </div>
+                     </div>
+                </div>`;
+        })
+    })
+    }) 
             })
            }
         })

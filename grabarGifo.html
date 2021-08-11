@@ -37,22 +37,30 @@
     </header>
     <main class="grabarVid">
         <div class="grabar_gif">
-            <img src="./assets/element-camara.svg" alt="camara">
-            <img src="./assets/element-luz-camara.svg" alt="luz camara">
+            <img src="./assets/element-camara.svg" alt="camara" class="camara">
+            <img src="./assets/element-luz-camara.svg" alt="luz camara" class="luz">
             <div class="cuadro_grabar"><video src="" id="video"></video>
                 <h2>Inspírate, busca, guarda, y crea los mejores <span class="gifos">GIFOS</span></h2>
                 <p>¡Crea tu GIFO en sólo 3 pasos!</p>
                 <p>(Sólo necesitas una cámara para grabar un video)</p>
             </div>
-            <img src="./assets/pelicula.svg" alt="cinta pelicula">
         </div>
-        <div class="numeros">
-            <button class="btn n1">1</button>
-            <button class="btn n2">2</button>
-            <button class="btn n3">3</button>
+        <div class="pasosVideo">
+            <div class="numeros">
+                <button class="btn n1">1</button>
+                <button class="btn n2">2</button>
+                <button class="btn n3">3</button>
+            </div>
+                <p id="cronometro">
+                    <span class="cronometro" id="min">0</span>:<span class="cronometro" id="seg">0</span>
+                </p>
+                <img src="./assets/pelicula.svg" alt="cinta pelicula" class="cinta">
         </div>
-        <div >
-            <button class="botonGeneral">COMENZAR</button>
+        <div>
+            <button class="botonGeneral" id="comenzar">COMENZAR</button>
+            <button class="botonGeneral" id="grabar">GRABAR</button>
+            <button class="botonGeneral" id="finalizar">FINALIZAR</button>
+            <button class="botonGeneral" id="subir">SUBIR GIFO</button>
         </div>
     </main>
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
