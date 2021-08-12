@@ -8,15 +8,23 @@ const botonGeneral = document.querySelector(".botonGeneral");
 const cuadroGrabar = document.querySelector(".cuadro_grabar");
 const boton1 = document.querySelector(".n1");
 const boton2 = document.querySelector(".n2");
+const boton3 = document.querySelector(".n3");
 const seccCronometro = document.querySelector("#cronometro");
+const cuadroVideo = document.querySelector("#cuadro_video");
 let blob;
 
 botonComenzar.addEventListener("click",function(){
    cuadroGrabar.innerHTML =`
-   <video src="" id="video">
-   <h2>¿Nos das acceso a tu cámara?</h2>
-   <p>El acceso a tu cámara será válido sólo por el tiempo en el que estés creando el GIFO</p>
-   </video>
+      <div id="cuadro_video">
+         <div class="texto_cargando">
+            <img src="./assets/loader.svg" alt="imagen cargando">
+            <h5>Estamos subiendo tu GIFO</h5>
+         </div>
+      </div>
+      <video src="" id="video">
+      <h2>¿Nos das acceso a tu cámara?</h2>
+      <p>El acceso a tu cámara será válido sólo por el tiempo en el que estés creando el GIFO</p>
+      </video>
    `
    boton1.style.background = "#572EE5";
    boton1.style.color = "white";
@@ -55,7 +63,6 @@ botonComenzar.addEventListener("click",function(){
       boton2.style.color = "white";
       botonGrabar.style.visibility="hidden";
       botonSubir.style.visibility="hidden";
-
       botonFinalizar.style.visibility="visible";
       seccCronometro.style.visibility="visible";
       cargar();
@@ -64,9 +71,22 @@ botonComenzar.addEventListener("click",function(){
    })
 
 botonSubir.addEventListener("click", async function(){
+   botonSubir.style.visibility="hidden";
+   boton2.style.background = "white";
+   boton2.style.color = "#572EE5";
+   boton3.style.background = "#572EE5";
+   boton3.style.color = "white";
+   cuadroVideo.style.visibility= "visible";
+   seccCronometro.innerHTML=" ";
+   console.log(cuadroVideo);
    const form = new FormData();
-   const respuestaFetch = await fetch("https://upload.giphy.com/v1/gifs?api_key=xG8nagUIVFogPgw2nuvPUk503UMh6eDx&username=yumiyumi94", {method:"POST", body:form.append("file", blob, "gifoNuevo.gif")});
-   console.log(respuestaFetch);
+   form.append("file", blob, "gifoNuevo.gif")
+   const respuestaFetch = await fetch("https://upload.giphy.com/v1/gifs?api_key=xG8nagUIVFogPgw2nuvPUk503UMh6eDx&username=yumiyumi94", {method:"POST", body:form});
+   const datos = await respuestaFetch.json();
+   console.log(datos);
+   const fetchURlGifo = await fetch(`https://api.giphy.com/v1/gifs/${datos.data.id}?api_key=xG8nagUIVFogPgw2nuvPUk503UMh6eDx`)
+   const miGifUrl = await fetchURlGifo.json();
+   console.log(miGifUrl);
 })
 
 let stream = await navigator.mediaDevices.getUserMedia({video: {

@@ -39,7 +39,14 @@
         <div class="grabar_gif">
             <img src="./assets/element-camara.svg" alt="camara" class="camara">
             <img src="./assets/element-luz-camara.svg" alt="luz camara" class="luz">
-            <div class="cuadro_grabar"><video src="" id="video"></video>
+            <div class="cuadro_grabar">
+                <div id="cuadro_video">
+                    <div class="texto_cargando">
+                       <img src="./assets/loader.svg" alt="imagen cargando">
+                       <h5>Estamos subiendo tu GIFO</h5>
+                    </div>
+                 </div>
+                <video src="" id="video"></video>
                 <h2>Inspírate, busca, guarda, y crea los mejores <span class="gifos">GIFOS</span></h2>
                 <p>¡Crea tu GIFO en sólo 3 pasos!</p>
                 <p>(Sólo necesitas una cámara para grabar un video)</p>
@@ -51,10 +58,10 @@
                 <button class="btn n2">2</button>
                 <button class="btn n3">3</button>
             </div>
-                <p id="cronometro">
-                    <span class="cronometro" id="min">0</span>:<span class="cronometro" id="seg">0</span>
-                </p>
-                <img src="./assets/pelicula.svg" alt="cinta pelicula" class="cinta">
+            <p id="cronometro">
+                <span class="cronometro" id="min">0</span>:<span class="cronometro" id="seg">0</span>
+            </p>
+            <img src="./assets/pelicula.svg" alt="cinta pelicula" class="cinta">
         </div>
         <div>
             <button class="botonGeneral" id="comenzar">COMENZAR</button>
