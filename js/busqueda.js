@@ -59,6 +59,7 @@ cajaBusqueda.addEventListener("keyup", (e)=>{
                         <img src="./assets/icon-download.svg" alt="descargar">
                         </button>
                         <button class="boton_card max2" id="max_${gif.id}">
+                        <input type="hidden"value="${gif.images.original.url}">
                         <img src="./assets/icon-max-normal.svg" alt="max">
                         </button>
                     <div class="texto">
@@ -67,6 +68,35 @@ cajaBusqueda.addEventListener("keyup", (e)=>{
                     </div>
                     </div>
                         </div>`;
+                    })
+                    const max2 = document.querySelectorAll(`.max2`);
+                    max2.forEach((elemento)=>{
+                        elemento.addEventListener("click", (e)=>{
+                            let eventoBtn = e.currentTarget;
+                            let elementoInput = eventoBtn.querySelector("input").value;
+                            console.log(eventoBtn);
+                            resultadoSearch.innerHTML = `
+                                <img src="${elementoInput}" alt="gif max" id="gif_max">
+                                <img src="./assets/close.svg" alt="cerrar" id="cerrar">
+                                <div class="info_gif">
+                                <button class="boton_card favorito" id="favorito">
+                                <input type="hidden"value="${elementoInput}"> 
+                                <img src="./assets/icon-fav.svg" alt="corazon">
+                                </button>
+                                <button class="boton_card descargar" id="decargar"> 
+                                <input type="hidden"value="${elementoInput}"> 
+                                <img src="./assets/icon-download.svg" alt="descargar">
+                                </button>
+                            </div>
+                            </div>
+                        `
+                        const intro = document.querySelector(".intro");
+                        const cerrar = document.querySelector("#cerrar");
+                        cerrar.addEventListener("click", (e)=>{
+                            let throwawayNode = intro.removeChild(resultadoSearch);
+                            location.reload();
+                        })
+                        })
                     })
                 })
                 const verMas = document.querySelector(".ver_mas");

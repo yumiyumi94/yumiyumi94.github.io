@@ -9,6 +9,7 @@ const cuadroGrabar = document.querySelector(".cuadro_grabar");
 const boton1 = document.querySelector(".n1");
 const boton2 = document.querySelector(".n2");
 const seccCronometro = document.querySelector("#cronometro");
+let blob;
 
 botonComenzar.addEventListener("click",function(){
    cuadroGrabar.innerHTML =`
@@ -62,6 +63,12 @@ botonComenzar.addEventListener("click",function(){
       })
    })
 
+botonSubir.addEventListener("click", async function(){
+   const form = new FormData();
+   const respuestaFetch = await fetch("https://upload.giphy.com/v1/gifs?api_key=xG8nagUIVFogPgw2nuvPUk503UMh6eDx&username=yumiyumi94", {method:"POST", body:form.append("file", blob, "gifoNuevo.gif")});
+   console.log(respuestaFetch);
+})
+
 let stream = await navigator.mediaDevices.getUserMedia({video: {
    height: { max: 480 }
 }, audio: false});
@@ -79,8 +86,7 @@ async function grabar(){
 
 async function finalizar(){
    await recorder.stopRecording();
-   let blob = await recorder.getBlob();
-   invokeSaveAsDialog(blob);
+   blob = await recorder.getBlob();
    console.log(blob);
 }
 
