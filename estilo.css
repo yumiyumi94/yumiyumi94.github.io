@@ -729,16 +729,16 @@ video {
   margin-top: 35px;
 }
 
-#cuadro_video {
+.cuadro_video {
   background-color: #572EE5;
   height: 480px;
   width: 640px;
   margin: auto;
   opacity: 0.7;
   position: absolute;
-  margin-top: 35px;
+  margin-top: -485px;
   margin-left: 30px;
-  visibility: hidden;
+  visibility: visible;
 }
 
 .texto_cargando {
@@ -754,14 +754,29 @@ video {
   padding: auto;
 }
 
-.mis_Favoritos img {
+.mis_Favoritos .numFav {
   width: 250px;
   height: 250px;
-  padding: 10px;
 }
 
 @media (min-width: 600px) {
   .mis_Favoritos {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
+}
+
+.mis_GIFOS {
+  padding: auto;
+}
+
+.mis_GIFOS .numGif {
+  width: 250px;
+  height: 250px;
+}
+
+@media (min-width: 600px) {
+  .mis_GIFOS {
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
   }

@@ -112,7 +112,7 @@ video{
     margin-top: 35px;
 }
 //estilo del cuadro video grabado
-#cuadro_video{
+.cuadro_video{
     //z-index: 10;
     background-color: $morado;
     height: 480px;
@@ -120,9 +120,9 @@ video{
     margin: auto;
     opacity: 0.7;
     position: absolute;
-    margin-top: 35px;
+    margin-top: -485px;
     margin-left: 30px;
-    visibility: hidden;
+    visibility: visible;
 }
 
 .texto_cargando{

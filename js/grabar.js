@@ -15,12 +15,6 @@ let blob;
 
 botonComenzar.addEventListener("click",function(){
    cuadroGrabar.innerHTML =`
-      <div id="cuadro_video">
-         <div class="texto_cargando">
-            <img src="./assets/loader.svg" alt="imagen cargando">
-            <h5>Estamos subiendo tu GIFO</h5>
-         </div>
-      </div>
       <video src="" id="video">
       <h2>¿Nos das acceso a tu cámara?</h2>
       <p>El acceso a tu cámara será válido sólo por el tiempo en el que estés creando el GIFO</p>
@@ -76,9 +70,8 @@ botonSubir.addEventListener("click", async function(){
    boton2.style.color = "#572EE5";
    boton3.style.background = "#572EE5";
    boton3.style.color = "white";
-   cuadroVideo.style.visibility= "visible";
+   addElement();
    seccCronometro.innerHTML=" ";
-   console.log(cuadroVideo);
    const form = new FormData();
    form.append("file", blob, "gifoNuevo.gif")
    const respuestaFetch = await fetch("https://upload.giphy.com/v1/gifs?api_key=xG8nagUIVFogPgw2nuvPUk503UMh6eDx&username=yumiyumi94", {method:"POST", body:form});
@@ -86,8 +79,33 @@ botonSubir.addEventListener("click", async function(){
    console.log(datos);
    const fetchURlGifo = await fetch(`https://api.giphy.com/v1/gifs/${datos.data.id}?api_key=xG8nagUIVFogPgw2nuvPUk503UMh6eDx`)
    const miGifUrl = await fetchURlGifo.json();
-   console.log(miGifUrl);
+   const miGif = miGifUrl.data.images.downsized_medium.url;
+   console.log(miGif);
+   let arrayLocalStorageMisGifs = localStorage.getItem("array misGifos");
+   let misGifosGuardados = [];
+      if(arrayLocalStorageMisGifs){
+            misGifosGuardados = JSON.parse(arrayLocalStorageMisGifs);
+            }
+      misGifosGuardados.push(miGif);
+      localStorage.setItem("array misGifos", JSON.stringify(misGifosGuardados));
+
+   setTimeout(()=>{
+      cuadroGrabar.innerHTML=`
+      <video src="" id="video"></video>
+      <h2>¡Tu GIFO ha sido guadrado en misGifos!</h2>`
+   },2000)
 })
+
+function addElement(){
+   const newDiv = document.createElement("div");
+   newDiv.classList.add("cuadro_video");
+   newDiv.innerHTML = `
+      <div class="texto_cargando">
+         <img src="./assets/loader.svg" alt="imagen cargando">
+         <h5>Estamos subiendo tu GIFO</h5>
+      </div>`
+   cuadroGrabar.appendChild(newDiv);
+}
 
 let stream = await navigator.mediaDevices.getUserMedia({video: {
    height: { max: 480 }
